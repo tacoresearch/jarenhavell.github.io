@@ -3,6 +3,7 @@
 *January 1, 2020*
 
 WARNING: THIS ARTICLE IS STILL IN PROCESS AS OF 1/1/2020.
+WARNING: THIS PROJECT WAS ABANDONDED
 
 XYZ from XDA developers was kind enough to put together a new root package / tutorial for the Kinde Fire 7 9th generation (2019 edition). All credit to [xyz](https://forum.xda-developers.com/search.php?searchid=461961171) of XDA Developers for making this all possible. Their post can be found on the [amazon fire fourms.](https://forum.xda-developers.com/amazon-fire/orig-development/fire-7-2019-mustang-unbrick-downgrade-t3944365)
 
@@ -55,10 +56,14 @@ Device: $35 Kindle Fire 7, 9th generation, released June 2019, nicknamed “[Mus
          2. adb shell
          3. cd /data/local/temp
          4. ```
-            cd /data/local/tmp
-            ./mtk-su
-            getenforce # Just to confirm it says Permissive
-            echo 0 > /sys/block/mmcblk0boot0/force_ro
+            cd /data/local/tmp
+
+            ./mtk-su
+
+            getenforce # Just to confirm it says Permissive
+
+            echo 0 > /sys/block/mmcblk0boot0/force_ro
+
             dd if=/dev/zero of=/dev/block/mmcblk0boot0 bs=512 count=8
             ```
 
@@ -129,7 +134,8 @@ for me, the ID was **18d1**.
 and type the following line:
 
 ```
-SUBSYSTEM=="usb", ATTR{idVendor}=="18d1", MODE="0666", GROUP="plugdev"
+SUBSYSTEM=="usb", ATTR{idVendor}=="18d1", MODE="0666", GROUP="plugdev"
+
 ```
 
 **ctrl X** o exit, and  hit y to save.
@@ -137,10 +143,14 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="18d1", MODE="0666", GROUP="plugdev"
 Now assign read permissions on the files, reload udev and reload the adb daemon:
 
 ```
-sudo chmod a+r /etc/udev/rules.d/51-android.rules
-sudo udevadm control --reload-rules
-adb kill-server
-adb start-server
+sudo chmod a+r /etc/udev/rules.d/51-android.rules
+
+sudo udevadm control --reload-rules
+
+adb kill-server
+
+adb start-server
+
 ```
 
 You may have to disconnect and connect again your device to the USB port.
