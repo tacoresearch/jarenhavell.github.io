@@ -6,7 +6,7 @@ See also: [About](about.md)
 
 ## 2025
 
-- [Expand raidz pool by adding a disk – ZFS expansion in Proxmox 9](2025/expand-raidz-pool-by-adding-a-disk-zfs-expansion-in-proxmox-9/README.md) — August 10, 2025  *(some images unavailable — broken blob: links in source)*
+- [Expand raidz pool by adding a disk – ZFS expansion in Proxmox 9](2025/expand-raidz-pool-by-adding-a-disk-zfs-expansion-in-proxmox-9/README.md) — August 10, 2025  
 
 ## 2020
 
