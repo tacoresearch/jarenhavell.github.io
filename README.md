@@ -1,5 +1,5 @@
 # JarenHavell.com ![favicon](favicon.ico)
-
+[ALT View](index2.html)
 Local Markdown archive of jarenhavell.com, organized by year.
 
 See also: [About](about.md)
