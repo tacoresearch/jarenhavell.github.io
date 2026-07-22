@@ -1,4 +1,4 @@
-# JarenHavell.com Archive
+# JarenHavell.com ![favicon](favicon.ico)
 
 Local Markdown archive of jarenhavell.com, organized by year.
 
