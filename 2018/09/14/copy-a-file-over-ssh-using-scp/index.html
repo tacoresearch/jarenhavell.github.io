@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Copy a file over SSH using SCP — JarenHavell.com</title>
+  <link rel="icon" href="../../../../favicon.ico" type="image/x-icon">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: #fff;
+      color: #222;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    header {
+      background: #28a745;
+      padding: 2.5rem 2rem 2rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+    header h1 { font-size: 2.2rem; font-weight: 800; }
+    header h1 a { color: #fff; text-decoration: none; }
+    nav { display: flex; gap: 1.5rem; }
+    nav a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-size: 0.95rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      padding: 0.25rem 0.75rem;
+      border-radius: 4px;
+    }
+    nav a:hover { background: rgba(255,255,255,0.2); color: #fff; }
+    main {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem;
+    }
+    main h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: 0.25rem; }
+    main h2 { font-size: 1.3rem; font-weight: 700; margin: 1.5rem 0 0.5rem; }
+    main h3 { font-size: 1.1rem; font-weight: 600; margin: 1.25rem 0 0.4rem; }
+    main p { margin-bottom: 1rem; color: #333; }
+    main em { color: #666; }
+    main a { color: #135e96; }
+    main ul, main ol { padding-left: 1.5rem; margin-bottom: 1rem; }
+    main li { margin: 0.25rem 0; }
+    main pre {
+      background: #f4f4f4;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 1rem;
+      overflow-x: auto;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+    }
+    main code {
+      background: #f4f4f4;
+      padding: 0.15em 0.35em;
+      border-radius: 3px;
+      font-size: 0.9em;
+    }
+    main pre code { background: none; padding: 0; }
+    main img { max-width: 100%; height: auto; margin: 1rem 0; border-radius: 4px; }
+    main blockquote {
+      border-left: 4px solid #ddd;
+      padding-left: 1rem;
+      color: #555;
+      margin-bottom: 1rem;
+    }
+    footer {
+      border-top: 1px solid #ddd;
+      padding: 1.25rem 2rem;
+      font-size: 0.85rem;
+      color: #666;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1><a href="../../../../index2.html">JarenHavell.com</a></h1>
+    <nav>
+      <a href="../../../../index2.html">Blog</a>
+      <a href="../../../../about.md">About Me</a>
+    </nav>
+  </header>
+  <main>
+<h1>Copy a file over SSH using SCP</h1>
+<p><em>September 14, 2018</em></p>
+<p>Scenario: Your file is on one linux machine. You want it somewhere else.</p>
+<p>[Video: https://www.youtube.com/watch?v=4GYsAWGP9eM]</p>
+<p>You SSH to the machine where the file is at, and run the following scp command (Secure Copy Protocol) to copy it to your local machine.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Use the SCP command</td>
+<td>Sudo SCP /home/user/source.file user@destinationip:/home/user/destinationfolder/</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Example: I have a file on “pi@rasperrypi”</td>
+<td>192.168.1.51</td>
+</tr>
+<tr>
+<td>I want the file to go to “bob@t540debian”</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>File is in the home directory on raspberrypi</td>
+<td>/home/pi/textfile.txt</td>
+</tr>
+<tr>
+<td>Want to copy it to bob’s home on t540debian</td>
+<td>/home/bob/</td>
+</tr>
+<tr>
+<td>For example, a text file.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Touch to create, echo “with the data” &gt;&gt; to the file, and cat the cat to concatenate the cats. Meow. /home/pi/cats.txt |</p>
+<p><img alt="" src="images/010319_0207_Copyafileov1.png" /><br />
+| Step 1, From $Bob@t540debian, ssh raspberry as user pi | SSH pi@192.168.1.51 |
+| Step 2, From ssh as user $pi@rasperrypi | sudo scp /home/cats.txt bob@192.168.1.248:/home/bob/ |</p>
+<p><img alt="" src="images/010319_0207_Copyafileov2.png" /></p>
+<p><img alt="" src="images/010319_0207_Copyafileov3.png" /></p>
+  </main>
+  <footer>
+    <p>Copyright Jaren Havell. You wouldn't download a car.</p>
+  </footer>
+</body>
+</html>

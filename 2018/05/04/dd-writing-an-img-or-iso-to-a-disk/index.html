@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dd – writing an img or iso to a disk — JarenHavell.com</title>
+  <link rel="icon" href="../../../../favicon.ico" type="image/x-icon">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: #fff;
+      color: #222;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    header {
+      background: #28a745;
+      padding: 2.5rem 2rem 2rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+    header h1 { font-size: 2.2rem; font-weight: 800; }
+    header h1 a { color: #fff; text-decoration: none; }
+    nav { display: flex; gap: 1.5rem; }
+    nav a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-size: 0.95rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      padding: 0.25rem 0.75rem;
+      border-radius: 4px;
+    }
+    nav a:hover { background: rgba(255,255,255,0.2); color: #fff; }
+    main {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem;
+    }
+    main h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: 0.25rem; }
+    main h2 { font-size: 1.3rem; font-weight: 700; margin: 1.5rem 0 0.5rem; }
+    main h3 { font-size: 1.1rem; font-weight: 600; margin: 1.25rem 0 0.4rem; }
+    main p { margin-bottom: 1rem; color: #333; }
+    main em { color: #666; }
+    main a { color: #135e96; }
+    main ul, main ol { padding-left: 1.5rem; margin-bottom: 1rem; }
+    main li { margin: 0.25rem 0; }
+    main pre {
+      background: #f4f4f4;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 1rem;
+      overflow-x: auto;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+    }
+    main code {
+      background: #f4f4f4;
+      padding: 0.15em 0.35em;
+      border-radius: 3px;
+      font-size: 0.9em;
+    }
+    main pre code { background: none; padding: 0; }
+    main img { max-width: 100%; height: auto; margin: 1rem 0; border-radius: 4px; }
+    main blockquote {
+      border-left: 4px solid #ddd;
+      padding-left: 1rem;
+      color: #555;
+      margin-bottom: 1rem;
+    }
+    footer {
+      border-top: 1px solid #ddd;
+      padding: 1.25rem 2rem;
+      font-size: 0.85rem;
+      color: #666;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1><a href="../../../../index2.html">JarenHavell.com</a></h1>
+    <nav>
+      <a href="../../../../index2.html">Blog</a>
+      <a href="../../../../about.md">About Me</a>
+    </nav>
+  </header>
+  <main>
+<h1>Dd – writing an img or iso to a disk</h1>
+<p><em>May 4, 2018</em></p>
+<p>DD (or <strong>D</strong>ata <strong>D</strong>uplicate) is a handy tool for working with disk images. It can also be dangerous if you do not know how it works or get your “if” swapped with your “of” or have the wrong device.</p>
+<p>“<strong>If</strong>” is the “source” of the image you are working with, usually an image but it could also be a device.</p>
+<p>“<strong>of</strong>” is the “destination” for where you are copying, often to a device or partition.</p>
+<p>First, we list the devices and partitions. Then we use DD to write out our file to the destination USB drive.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>List the “block” storage devices using <strong>LSBLK</strong></td>
+<td>Lsblk</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="" src="images/010119_2313_Ddwritingan1.png" /></p>
+<p>My SD card is /<strong>mmcblk0</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Then use <a href="https://www.debian.org/CD/faq/">DD</a></td>
+<td>dd if=<file> of=<device> bs=4M</td>
+</tr>
+<tr>
+<td><strong>Example</strong> 1 – rpi image to SD card</td>
+<td>dd bs=4M if=2018-04-18-raspbian-stretch-lite.img of=/dev/mmcblk0 status=progress conv=fsync sync</td>
+</tr>
+<tr>
+<td><strong>Example</strong> 2- debian image to usb</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>(from /downloads directory) dd bs=4M if=debian-testing-amd64-netinst.iso of=/dev/sdc1 status=progress conv=fsync |</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Some of the commands and what they mean</td>
+<td><strong>Status=progress</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Provides details about the transfer process. It’s nice to know something is happening, especialy with large files and slow storage devices.
+|  |  |
+| --- | --- |
+|  | <strong>bs=4M</strong> |</p>
+<p>Bs is block size, so really, bs=BYTES.</p>
+<p>You specify the maximum size of the read (if) and write (of) to transfer at a time. By default, this will transfer 512 bytes at a time. Using 4M means 4 Megabytes. Slower drives will simply max out at their peak speed.
+|  |  |
+| --- | --- |
+|  | <strong>;sync</strong> |</p>
+<p>finish writing all the things to disk. Important for reasons, such as the amount of data being smaller than the block being written, and it waiting for that block to be filled before writing. Google the reasons.</p>
+<p>Also, for other reasons:</p>
+<p><strong>conv=fsync</strong>write the output and meta data before finishing.
+| Oh, you may need to run these with sudo | You need full read/ write access. One sure way it ti run as root, so add <strong>sudo</strong> in front to run the command as root. |</p>
+<p>You can also reverse this to make an image of a device. You have to be careful of course.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Example. I had just finished settup um my raspbery pi with all the settings as I like them. Wanted to make it easy to “get back” to this point if needed. This command reads from my SD card , mmcblk0, and copies it to the*.img file, at 8 megabytes per read, providing the status as we go.</td>
+<td><strong>dd if=/dev/mmcblk0 of=/home/bob/Downloads/raspbian-strch-full-JarenBU-12-20-2018.img bs=8M status=progress</strong></td>
+</tr>
+<tr>
+<td>Another example is backing up a CD to an *.iso file, in this case Streets Of Sim City for use on an old windows 98 computer with a broken CD rom drive, so had to copy over via usb drive as an iso. <a href="https://www.elby.ch/en/products/vcd.html">Clone Sheep</a> to the rescue!</td>
+<td><strong>dd if=/dev/cdrom of /home/bob/Downloads/StreetsOfSimCity.iso</strong></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>There was some <a href="https://www.reddit.com/r/linuxquestions/comments/2hp3mq/what_is_the_purpose_of_the_bs4m_sync_when_using/">really good info on reddit</a> regarding byte sizes and sync.</td>
+</tr>
+</tbody>
+</table>
+<p>This is from user “awwtowa”  ||  |</p>
+<p>|</p>
+  </main>
+  <footer>
+    <p>Copyright Jaren Havell. You wouldn't download a car.</p>
+  </footer>
+</body>
+</html>

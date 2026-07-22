@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kindle Fire 7 – 9th Gen (2019, mustang): xyz Root, TWRP, install Lineage 14.1 — JarenHavell.com</title>
+  <link rel="icon" href="../../../../favicon.ico" type="image/x-icon">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: #fff;
+      color: #222;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    header {
+      background: #28a745;
+      padding: 2.5rem 2rem 2rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+    header h1 { font-size: 2.2rem; font-weight: 800; }
+    header h1 a { color: #fff; text-decoration: none; }
+    nav { display: flex; gap: 1.5rem; }
+    nav a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-size: 0.95rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      padding: 0.25rem 0.75rem;
+      border-radius: 4px;
+    }
+    nav a:hover { background: rgba(255,255,255,0.2); color: #fff; }
+    main {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem;
+    }
+    main h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: 0.25rem; }
+    main h2 { font-size: 1.3rem; font-weight: 700; margin: 1.5rem 0 0.5rem; }
+    main h3 { font-size: 1.1rem; font-weight: 600; margin: 1.25rem 0 0.4rem; }
+    main p { margin-bottom: 1rem; color: #333; }
+    main em { color: #666; }
+    main a { color: #135e96; }
+    main ul, main ol { padding-left: 1.5rem; margin-bottom: 1rem; }
+    main li { margin: 0.25rem 0; }
+    main pre {
+      background: #f4f4f4;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 1rem;
+      overflow-x: auto;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+    }
+    main code {
+      background: #f4f4f4;
+      padding: 0.15em 0.35em;
+      border-radius: 3px;
+      font-size: 0.9em;
+    }
+    main pre code { background: none; padding: 0; }
+    main img { max-width: 100%; height: auto; margin: 1rem 0; border-radius: 4px; }
+    main blockquote {
+      border-left: 4px solid #ddd;
+      padding-left: 1rem;
+      color: #555;
+      margin-bottom: 1rem;
+    }
+    footer {
+      border-top: 1px solid #ddd;
+      padding: 1.25rem 2rem;
+      font-size: 0.85rem;
+      color: #666;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1><a href="../../../../index2.html">JarenHavell.com</a></h1>
+    <nav>
+      <a href="../../../../index2.html">Blog</a>
+      <a href="../../../../about.md">About Me</a>
+    </nav>
+  </header>
+  <main>
+<h1>Kindle Fire 7 – 9th Gen (2019, mustang): xyz Root, TWRP, install Lineage 14.1</h1>
+<p><em>January 1, 2020</em></p>
+<p>WARNING: THIS ARTICLE IS STILL IN PROCESS AS OF 1/1/2020.
+WARNING: THIS PROJECT WAS ABANDONDED</p>
+<p>XYZ from XDA developers was kind enough to put together a new root package / tutorial for the Kinde Fire 7 9th generation (2019 edition). All credit to <a href="https://forum.xda-developers.com/search.php?searchid=461961171">xyz</a> of XDA Developers for making this all possible. Their post can be found on the <a href="https://forum.xda-developers.com/amazon-fire/orig-development/fire-7-2019-mustang-unbrick-downgrade-t3944365">amazon fire fourms.</a></p>
+<p>The following article,  in combination with my video, will guide you through the process of unlocking your “$35” kindle fire and loading a different OS.</p>
+<p>[Video – in process]</p>
+<p>[Pictures]</p>
+<p>picture –  short with tweezers – red dot to metal frame</p>
+<ul>
+<li><a href="https://forum.xda-developers.com/showpost.php?p=79683131&amp;postcount=22">https://forum.xda-developers.com/showpost.php?p=79683131&amp;postcount=22</a></li>
+</ul>
+<p>[Tools]</p>
+<ul>
+<li>spare /empty USB drive</li>
+<li>USB cable for Kindle Fire</li>
+<li>computer that can boot from USB drive.</li>
+<li>tweezers if doing hardware unlock</li>
+</ul>
+<p>Device: $35 Kindle Fire 7, 9th generation, released June 2019, nicknamed “<a href="https://forum.xda-developers.com/amazon-fire/help/fire-9th-gen-car-model-t4022621">Mustang</a>” – For the <a href="http://jarenhavell.com/2019/04/09/customromkindlefire7-2019/">5th and 7th generation devices, see my previous post.</a></p>
+<p>[Instructions – coming soon]</p>
+<ol>
+<li>Read all instructions. Be warned thiat if you do the wrong thing, you could possibly delete all your data, break your kindle, cause a house fire, or make a small child cry, all of which coul d have been avoided if you just read the instructions. Still, proceed at your own risk.</li>
+<li>Download DRBL and prepare a bootable USB disk</li>
+<li>boot to linux (using USB disk, or your own linux machine)</li>
+<li>download all the tools and things you will need, and unzip them.</li>
+<li>On the kindle fire 7: Back up any data, <strong>do a complete factory reset</strong>, do <strong>not</strong> connect to wifi.</li>
+<li>enable developer mode and USB debugging on kindle.</li>
+<li>
+<p>get kindle into bootrom mode</p>
+</li>
+<li>
+<p>Hardware method:</p>
+</li>
+<li>turn off. open device. unplug battery.</li>
+<li>Carefully remove metal can cover. go slow, do not pry against circuit board or else you might damage a trace / componant.</li>
+<li>with a small pair of metal tweezers, short the indicated pin to the metal frame, and then plug in the usb.</li>
+<li>run the script. (sudo ./bootrom-step.sh )</li>
+<li>Release the pin as directed.</li>
+<li>
+<p>follow along</p>
+</li>
+<li>
+<p>Software method: use mtk-su to do the thing. Careful: this will break your device… and then you fix it by installing a new OS.</p>
+</li>
+<li>enable developer mode</li>
+<li>enable usb debug</li>
+<li>connect kindle to computer.<ol>
+<li>On the kindle, pull down the menu, click the USB charging,  “tap for other USB options” and select PTP for “transfer photos”. Click Accept to allow permission for your computer.</li>
+</ol>
+</li>
+<li>Open terminal on computer, navigate to the unzipped mtk-su folder.<ol>
+<li>Transfer the executable to your tablet by typing:  sudo adb push arm/mtk-su /data/local/tmp”</li>
+<li>once successful, run these commands line by line.<ol>
+<li>
+<h1>do not copy paste.</h1>
+</li>
+<li>adb shell</li>
+<li>cd /data/local/temp</li>
+<li>
+<p>```
+    cd /data/local/tmp</p>
+<p>./mtk-su</p>
+<p>getenforce # Just to confirm it says Permissive</p>
+<p>echo 0 &gt; /sys/block/mmcblk0boot0/force_ro</p>
+<p>dd if=/dev/zero of=/dev/block/mmcblk0boot0 bs=512 count=8
+```</p>
+<h1>dont close this window. you will need it in a moment.</h1>
+<ol>
+<li>open a new terminal window, and navigate to the unzipped amonet-mustang folder<ol>
+<li>cd /Downloads/amonet-mustang<ol>
+<li>run</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>sudo ./bootrom-step.sh</li>
+<li>Back on the mustang” terminal run a reboot command<ol>
+<li>type “reboot”.</li>
+<li>the tablet should restart, and the amonet script will begin to run.<ol>
+<li>Click to continue, it will starytcopying  things. Should take about 4 minutes.</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Once the script finished, the kindle will restart into fastboot mode<ol>
+<li>All you will see if the amazon logo. to verify that the dvice is in fastboot mode:<ol>
+<li>type sudo fastboot devices</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>it will list the device</li>
+<li>Now, back in the amonet window, start the fastboot process script to install twrp<ol>
+<li>sudo ./fastboot_step.sh</li>
+<li>the tablet will flash some text and do a few things. give it a minute or two</li>
+</ol>
+</li>
+<li>the tablet will flash and appear to restart. let it do its thing untill the screen goes dark.<ol>
+<li>tap the power button twice and TWRP will pop up.</li>
+<li>SUCCESS!</li>
+</ol>
+</li>
+<li>TWRP (Team Win Recovery Project) is now installed and can be launched by holding down <strong>VOL Down</strong> (left most button from pwr) and <strong>Power</strong> when starting up the device.</li>
+<li>You may follow any apropriate guide for installing an applicable OS</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<p>Step 2:</p>
+<p>Installing Lineage 14.1 on Kindle Fire 7 “mustang”  (9th gen)</p>
+<ol>
+<li>read <a href="https://forum.xda-developers.com/amazon-fire/orig-development/rom-lineage-14-1-t3957329">instructions from Ggow on XDA</a></li>
+<li>from TWRP:</li>
+<li>wipe &gt; Format Data</li>
+<li>Swipe to reset</li>
+<li>copy the rom to the device (One does not simply copy things of course)<ol>
+<li>copy the zips (Lineage / gapps / magisk)</li>
+</ol>
+</li>
+<li>flash rom.zip</li>
+<li>flash .zip of apps</li>
+<li>reboot</li>
+</ol>
+<p>Step 2.1 – Shave a few yacks.<br />
+So, it seems that the TWRP version does not like the SD card slot on my device. I tried 2 sd cards and neither seemed to work in TWRP, even though the same cards seemed to work just fine later in the installation. So, to get around the SD card issue, we can just push the files using adb push like we did before right? yes, after getting permission from the linux overloads. We have to shave their yack for them.</p>
+<p>This, of course, is only because you are usingdebian SID on DRB. For DRBL, We need to add a step to give you permission to connect to the device after TWRP is installed. When we were in FireOs, we simply slid down, clicked usb and changed the device to PTP mode. By default, TWRP supports MTP mode, which, of course doesn’t work “out of the box”.</p>
+<p>This is what I did to get it working. I used this <a href="http://Found this article https://askubuntu.com/questions/246913/insufficient-permissions-error-on-adb-push-command-on-12-04/349191">article on askubuntu</a> for the udev rules. Thanks to <a href="https://askubuntu.com/users/653515/vidarlo">vidarlo</a> and <a href="https://askubuntu.com/users/19547/erjoalgo">erjoalgo</a></p>
+<p>first, obtian the idVendor of the kindle.</p>
+<p>plug the kindle in, with TWRP loaded, and mtp enabled (mount &gt; enable MTP)</p>
+<p>You can get the ID code from either of the following:</p>
+<ul>
+<li>sudo dmesg<br />
+  Look for the amazon device</li>
+</ul>
+<p>or</p>
+<ul>
+<li>lsusb<br />
+  look for google Inc.</li>
+</ul>
+<p>for me, the ID was <strong>18d1</strong>.</p>
+<ul>
+<li>Next, you need to give the”plugdev” group access to the device. You are going to create a file and then change some permissions then restart the services.</li>
+<li>Create the file:</li>
+</ul>
+<p><code>sudo nano /etc/udev/rules.d/51-android.rules</code></p>
+<p>and type the following line:</p>
+<pre><code>SUBSYSTEM==&quot;usb&quot;, ATTR{idVendor}==&quot;18d1&quot;, MODE=&quot;0666&quot;, GROUP=&quot;plugdev&quot;
+
+</code></pre>
+<p><strong>ctrl X</strong> o exit, and  hit y to save.</p>
+<p>Now assign read permissions on the files, reload udev and reload the adb daemon:</p>
+<pre><code>sudo chmod a+r /etc/udev/rules.d/51-android.rules
+
+sudo udevadm control --reload-rules
+
+adb kill-server
+
+adb start-server
+
+</code></pre>
+<p>You may have to disconnect and connect again your device to the USB port.</p>
+<p>——-</p>
+<p>NOW you can copy the files using the adb push command, like we did before.</p>
+<ul>
+<li>navigate to where you downloaded the file, ie /Downloads/</li>
+<li>sudo adb push /path_to_lineage_rom_file.zip /data/local/tmp/lineage.zip</li>
+<li>after it finishes copying, use TWRP to install the image</li>
+</ul>
+<p>After it finished installing, you can go back and do the same things for any other files, such as open gapps</p>
+<p>Step 3-</p>
+<p>[Downloads]</p>
+<p>From your computer</p>
+<ul>
+<li><a href="https://drbl.org/download/">DRBL</a></li>
+</ul>
+<p>From linux pc/ or after booting up DRBL from flash drive:</p>
+<ul>
+<li>mtk-su (by XDA member <a href="https://forum.xda-developers.com/search.php?searchid=461961153">diplomatic</a>), from <a href="https://forum.xda-developers.com/android/development/amazing-temp-root-mediatek-armv8-t3922213">https://forum.xda-developers.com/android/development/amazing-temp-root-mediatek-armv8-t3922213</a></li>
+<li>amonet-mustang.zip from <a href="https://forum.xda-developers.com/amazon-fire/orig-development/fire-7-2019-mustang-unbrick-downgrade-t3944365">XDA post</a></li>
+<li>finalize.zip from <a href="https://forum.xda-developers.com/amazon-fire/orig-development/fire-7-2019-mustang-unbrick-downgrade-t3944365">XDA post</a></li>
+<li>update-kindle-NS6312_user_1827_0002517050244.bin: <a href="https://fireos-tablet-src.s3.amazonaws.com/Tr37jJbMSR96z5WBmVbW6uq32p/update-kindle-NS6312_user_1827_0002517050244.bin">https://fireos-tablet-src.s3.amazona…2517050244.bin</a></li>
+<li>Magisk-v19.3.zip: <a href="https://github.com/topjohnwu/Magisk/releases/download/v19.3/Magisk-v19.3.zip">https://github.com/topjohnwu/Magisk/…gisk-v19.3.zip</a> or newer version from xda <a href="https://forum.xda-developers.com/apps/magisk/official-magisk-v7-universal-systemless-t3473445">topjohnwu</a> on <a href="https://github.com/topjohnwu/Magisk/releases">Magisk github</a></li>
+<li>Optional</li>
+<li>revert-stock-mustang.zip (to go back to stock) from <a href="https://forum.xda-developers.com/amazon-fire/orig-development/fire-7-2019-mustang-unbrick-downgrade-t3944365">XDA post</a></li>
+<li>Lineage 14 (for Mustang: Kindle fire 7,  9th generation) <a href="https://forum.xda-developers.com/amazon-fire/orig-development/rom-lineage-14-1-t3957329">https://forum.xda-developers.com/amazon-fire/orig-development/rom-lineage-14-1-t3957329</a></li>
+<li>Open Google Apps <a href="https://opengapps.org/">https://opengapps.org/</a>  (Select Arm , 7.1 , then select <strong>stock</strong>, or other as desired</li>
+</ul>
+<p>[closing thoughts]</p>
+<p>So, I completely missed the steps for providing a recovery back to stock kindle fire goodness.</p>
+<p>You would need to eithre get the sd card mounted and copy files there, or push the files to a safe spot and flash the old kindle file, (as well as rooting it with magis)… I figured I should probably warn you there is no easy way to go back!</p>
+  </main>
+  <footer>
+    <p>Copyright Jaren Havell. You wouldn't download a car.</p>
+  </footer>
+</body>
+</html>

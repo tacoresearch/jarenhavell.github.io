@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unlock and Root: Loading a custom ROM on Kindle Fire 7 (5th gen) — JarenHavell.com</title>
+  <link rel="icon" href="../../../../favicon.ico" type="image/x-icon">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: #fff;
+      color: #222;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    header {
+      background: #28a745;
+      padding: 2.5rem 2rem 2rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+    header h1 { font-size: 2.2rem; font-weight: 800; }
+    header h1 a { color: #fff; text-decoration: none; }
+    nav { display: flex; gap: 1.5rem; }
+    nav a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-size: 0.95rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      padding: 0.25rem 0.75rem;
+      border-radius: 4px;
+    }
+    nav a:hover { background: rgba(255,255,255,0.2); color: #fff; }
+    main {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem;
+    }
+    main h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: 0.25rem; }
+    main h2 { font-size: 1.3rem; font-weight: 700; margin: 1.5rem 0 0.5rem; }
+    main h3 { font-size: 1.1rem; font-weight: 600; margin: 1.25rem 0 0.4rem; }
+    main p { margin-bottom: 1rem; color: #333; }
+    main em { color: #666; }
+    main a { color: #135e96; }
+    main ul, main ol { padding-left: 1.5rem; margin-bottom: 1rem; }
+    main li { margin: 0.25rem 0; }
+    main pre {
+      background: #f4f4f4;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 1rem;
+      overflow-x: auto;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+    }
+    main code {
+      background: #f4f4f4;
+      padding: 0.15em 0.35em;
+      border-radius: 3px;
+      font-size: 0.9em;
+    }
+    main pre code { background: none; padding: 0; }
+    main img { max-width: 100%; height: auto; margin: 1rem 0; border-radius: 4px; }
+    main blockquote {
+      border-left: 4px solid #ddd;
+      padding-left: 1rem;
+      color: #555;
+      margin-bottom: 1rem;
+    }
+    footer {
+      border-top: 1px solid #ddd;
+      padding: 1.25rem 2rem;
+      font-size: 0.85rem;
+      color: #666;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1><a href="../../../../index2.html">JarenHavell.com</a></h1>
+    <nav>
+      <a href="../../../../index2.html">Blog</a>
+      <a href="../../../../about.md">About Me</a>
+    </nav>
+  </header>
+  <main>
+<h1>Unlock and Root: Loading a custom ROM on Kindle Fire 7 (5th gen)</h1>
+<p><em>April 9, 2019</em></p>
+<p>I bought a $35 kindle fire 7 a few years ago. 2019 is the year to “root it” and make it mine.</p>
+<p><a href="https://www.youtube.com/watch?v=VecO6svCQgc">Loading a custom rom on a Kindle fire 7 (5th gen) in 2019</a></p>
+<p>[Video: https://www.youtube.com/watch?v=VecO6svCQgc]</p>
+<p>Lately, my kindle has been acting slow, freezing, disconnecting from wifi, and generally being a party pooper, plus all of the “offers”. I just want to watch Star Trek /Star Gate while I am cooking dinner. 2019 is the year to make it mine and to kick forced offers and updates to the curb.</p>
+<p>This video shows my process for unlocking a kindle fire 7 (5th gen), using an exploit called Amonet that works on MediaTek processors. This exploit package allows you to boot a custom recovery tool ( <a href="https://www.google.com/search?q=what+is+twrp">TWRP</a> ) which lets you flash a custom rom or tools to access root.</p>
+<p>I am doing this process per instructions from <a href="https://forum.xda-developers.com/member.php?s=5169b0cf70d6096a5a936f9bc9dd0ab2&amp;u=7104332">k4y0z</a> on XDA. (Many thanks to all for your hard work! )<br />
+original post on XDA: <a href="https://forum.xda-developers.com/amazon-fire/development/unlock-fire-t3899860">https://forum.xda-developers.com/amazon-fire/development/unlock-fire-t3899860</a></p>
+<p>To do this, you need:</p>
+<ul>
+<li>
+<p>a computer running linux</p>
+</li>
+<li>
+<p>I use Debian in this example, but you could use a <a href="https://tutorials.ubuntu.com/tutorial/tutorial-create-a-usb-stick-on-windows">live usb disk</a>.</p>
+</li>
+<li>Small plastic tools to open your kindle</li>
+<li>Tweezers or paperclip will work fine for shorting the pin to ground</li>
+<li>Patience and attention to detail.</li>
+<li>SD Card and way of copying files to sd card from computer</li>
+<li>Current version of the <a href="https://github.com/xyzz/amonet">amonet</a> exploit tool for mediatek processors for the kindle fire 7.</li>
+<li>A custom rom, optional root installer</li>
+</ul>
+<p>high level process</p>
+<ol>
+<li>prepare computer environment and run the script</li>
+<li>short the pin while plugging in kindle, follow prompts to run next script</li>
+<li>use TRWP to load a custom rom.</li>
+</ol>
+<p>My notes:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Read the whole thing before proceeding:  <a href="https://www.xda-developers.com/amazon-fire-7-5th-7th-gen-unlocked-rooted/">https://www.xda-developers.com/amazon-fire-7-5th-7th-gen-unlocked-rooted/</a>  You will need to add “sudo” before all commands.</td>
+<td>apt update   add-apt-repository universe   apt install python3 python3-serial android-tools-adb android-tools-fastboot</td>
+</tr>
+<tr>
+<td>Stop modem manager if necessary</td>
+<td><strong>systemctl stop ModemManager</strong>  Also, Disable</td>
+</tr>
+<tr>
+<td>adduser to the dialout group</td>
+<td>Sudo adduser bob dialout</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="" src="images/040919_1600_Rootandcust2.png" /><br />
+| My current OS | I have 5.3.3  (if you have 5.3.2 or prior, you do not need to open your device. With device off, you can simply hold the left volume button and then plug in to usb)  If you have 5.3.3 or higher, continue reading |
+| On the kinlde:  Back up your device | If you have anything on your device, back it up.   Also, there is a chance you could do something wrong and turn your tablet into a paperweight, so please proceed knowing that this could be the last time your kindle turns on. Proceed at your own risk. |
+| Unzip the amonet exploit files and navigate to the folder | Cd Downloads  Unzip amonet-force bla.zip  cd amonet |
+| You should Always look at things from the internet before you run them. | Cat bootrom-step.sh      Cat /modules/main.py |</p>
+<p>ls</p>
+<p>Cat payload.py</p>
+<p><img alt="" src="images/040919_1600_Rootandcust6.png" /></p>
+<p>l</p>
+<p><img alt="" src="images/040919_1600_Rootandcust7.png" /></p>
+<p>Alright… looks like it does android things.</p>
+<p>🙂
+| Turn off kindle.  Open the device | Insert your plastic pry tool into the side. I had to fiddle with it. I started just to the right of the SD card and pressed in. I slipped and smacked my hand on the desk. Ow. |</p>
+<p><img alt="" src="images/040919_1600_Rootandcust8.png" /><br />
+| Pop off the metal cover over the chips | I had to use a stronger tool as my plastic tool was not strong enough , and it was quite firmly secured. You need to be careful not to pry against any components, they are tiny and could break. Go slow, and be careful. |</p>
+<p><img alt="" src="images/040919_1600_Rootandcust9.png" /><br />
+| Get your computer ready. |  |
+| You will short the pin in the middle to ground. The metal frame is ground.  You do not need to see the screen, just hold the tweezers or wire while you plug in the USB. | You only need to hold this for a few seconds. |
+| Turn off, be ready to plug USB into computer. |  |
+|  |  |
+| Here goes..  Use sudo  Start by Running this code&gt;  Then,  With device off, while |</p>
+<p>Holding the tweezers or paperclip in place “shorting” to ground, plug in the USB cord to the computer.</p>
+<p>./bootrom-step.py || You can take the tweezers off now. |</p>
+<p>Follow the instructions- Click the enter button. For me, that means removing the cover that is pressing the button. || It should go through a few things, loading…  Wait for the things | It reboots |
+| At the screen, run the next command for fast boot.  ./fastbook-step.sh | ./fastboot-step.sh |</p>
+<p><img alt="" src="images/040919_1600_Rootandcust17.png" /></p>
+<p>And it reboots into TWRP</p>
+<p><img alt="" src="images/040919_1600_Rootandcust18.png" /></p>
+<p>Slide right</p>
+<p>Woot! Now you can load a custom rom or root the device with magisk.
+|  |  |
+| --- | --- |
+| From TWRP | per instructions, you can Use TWRP to flash custom ROM, Magisk or SuperSU.For custom roms, I was only aware of the one mentioned in the article specifically for the kindle fire 7.FireOS Revamped  https://forum.xda-developers.com/amazon-fire/development/rom-fire-os-revamped-t3899921/post78900188#post78900188 |
+| flash your rom | In my <a href="https://youtu.be/VecO6svCQgc">video</a>, I backed up my device to an SD card using the backup function. Then I wiped my device. Then I accidentally did a full restore to factory, and did not click the right zip file and installed magisk by accident. |</p>
+<p>Then I flashed the rom and it worked.</p>
+<p>You know it is working when you see the android animation at boot.</p>
+<p>If you don’t see the android, you did something wrong, like me 🙂</p>
+<p><img alt="" src="images/040919_1600_Rootandcust20.png" /></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Result?</td>
+<td>A working kindle fire 7 with no offers or junk installed, and no forced over the air updates.</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="" src="images/040919_1600_Rootandcust21.png" /><br />
+| Enjoy! |  |</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Troubleshooting</strong>:</td>
+<td></td>
+</tr>
+<tr>
+<td>If you see this kind of error, make sure you run as sudo, or you add your user name to the dialout group.  You can also try a different USB port.</td>
+<td></td>
+</tr>
+<tr>
+<td>Is it plugged in?</td>
+<td>Plug in kindle, turn on, enable adb, and use <strong>lsusb</strong> to see that it is connected.</td>
+</tr>
+</tbody>
+</table>
+<p>You can also run <strong>dmesg</strong> to see if it shows up.
+| SUDO   ./bootrom-step.py | No connection? Try a different USB port? |
+|  | Read the instructions |</p>
+<p><img alt="" src="images/040919_1600_Rootandcust25.png" /></p>
+<p><a href="https://forum.xda-developers.com/amazon-fire/development/unlock-fire-t3899860">https://forum.xda-developers.com/amazon-fire/development/unlock-fire-t3899860</a></p>
+  </main>
+  <footer>
+    <p>Copyright Jaren Havell. You wouldn't download a car.</p>
+  </footer>
+</body>
+</html>

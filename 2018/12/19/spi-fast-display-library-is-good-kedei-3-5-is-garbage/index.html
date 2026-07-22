@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SPI  fast Display library is good, KEDEI 3.5 is Garbage. — JarenHavell.com</title>
+  <link rel="icon" href="../../../../favicon.ico" type="image/x-icon">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: #fff;
+      color: #222;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    header {
+      background: #28a745;
+      padding: 2.5rem 2rem 2rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+    header h1 { font-size: 2.2rem; font-weight: 800; }
+    header h1 a { color: #fff; text-decoration: none; }
+    nav { display: flex; gap: 1.5rem; }
+    nav a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-size: 0.95rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      padding: 0.25rem 0.75rem;
+      border-radius: 4px;
+    }
+    nav a:hover { background: rgba(255,255,255,0.2); color: #fff; }
+    main {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem;
+    }
+    main h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: 0.25rem; }
+    main h2 { font-size: 1.3rem; font-weight: 700; margin: 1.5rem 0 0.5rem; }
+    main h3 { font-size: 1.1rem; font-weight: 600; margin: 1.25rem 0 0.4rem; }
+    main p { margin-bottom: 1rem; color: #333; }
+    main em { color: #666; }
+    main a { color: #135e96; }
+    main ul, main ol { padding-left: 1.5rem; margin-bottom: 1rem; }
+    main li { margin: 0.25rem 0; }
+    main pre {
+      background: #f4f4f4;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 1rem;
+      overflow-x: auto;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+    }
+    main code {
+      background: #f4f4f4;
+      padding: 0.15em 0.35em;
+      border-radius: 3px;
+      font-size: 0.9em;
+    }
+    main pre code { background: none; padding: 0; }
+    main img { max-width: 100%; height: auto; margin: 1rem 0; border-radius: 4px; }
+    main blockquote {
+      border-left: 4px solid #ddd;
+      padding-left: 1rem;
+      color: #555;
+      margin-bottom: 1rem;
+    }
+    footer {
+      border-top: 1px solid #ddd;
+      padding: 1.25rem 2rem;
+      font-size: 0.85rem;
+      color: #666;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1><a href="../../../../index2.html">JarenHavell.com</a></h1>
+    <nav>
+      <a href="../../../../index2.html">Blog</a>
+      <a href="../../../../about.md">About Me</a>
+    </nav>
+  </header>
+  <main>
+<h1>SPI  fast Display library is good, KEDEI 3.5 is Garbage.</h1>
+<p><em>December 19, 2018</em></p>
+<p>Video notes for SPI display install on a raspberry pi, “liveblog” style.<br />
+A bit lengthy due to my preferred editing style (none).</p>
+<p><a href="https://youtu.be/fzNl4dB_Vis">Part 1</a> is riddled with typos and ends with some frustration.</p>
+<p><a href="https://www.youtube.com/watch?v=FrldurB37QM">Part 2</a> is a roller coaster of excitement, but more importantly, many lessons learned.</p>
+<p><a href="https://www.youtube.com/channel/UCQbz9BSSJd7PSli9FUbDcQQ/videos?disable_polymer=1">Part 3</a> has some feedback from the author of the library, squirrels, I do some singing, and a conclusion.</p>
+<p>Please see my videos for context, but basically the Kedei display is garbage, buy an adafruit or waveshare.</p>
+<p>The linked <a href="https://github.com/juj/fbcp-ili9341">library</a> by juj is AMAZING,  and when used with those waveshare or adafruit spi displays, you can achieve very fast frame rates.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pinouts</td>
+<td></td>
+</tr>
+<tr>
+<td>Pi stacked</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SPI display</td>
+<td></td>
+</tr>
+<tr>
+<td>“Juj”‘s Example video</td>
+<td><a href="https://www.youtube.com/watch?v=dqOLIHOjLq4">fbcp-ili9341 ported to ILI9486 WaveShare 3.5″ (B) SpotPear 320×480 SPI display</a></td>
+</tr>
+</tbody>
+</table>
+<p><img alt="" src="images/121918_2102_SPIfastDisp4.jpg" />  </p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Library</td>
+<td><a href="https://github.com/juj/fbcp-ili9341">https://github.com/juj/fbcp-ili9341</a></td>
+</tr>
+<tr>
+<td>Instructions</td>
+<td>Use raspi-config to configure raspbery pi</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Enable ssh</li>
+</ul>
+<p>Find out ip address ussing “ip address”</p>
+<p>Ssh to the rpi
+|  |  |
+| --- | --- |
+| Ssh pi@192.168.1.51 |  |
+| Assuming stock, no changes to /boot/config.txt |</p>
+<p>If needed, would need to disable dtoverlay or dtparam lines with the #  || Cat /boot/config.txt | Scroll down…  Looks good |
+| Build and run: |</p>
+<p>git clone <a href="https://github.com/juj/fbcp-ili9341.git">https://github.com/juj/fbcp-ili9341.git</a></p>
+<p>cd fbcp-ili9341</p>
+<p>mkdir build</p>
+<p>cd build</p>
+<p>cmake [options] ..</p>
+<p>make -j</p>
+<p>sudo ./fbcp-ili9341 *Replace [options] with the appropriate display type. |</p>
+<p>Make sure you have cmake!</p>
+<p><img alt="" src="images/121918_2102_SPIfastDisp8.png" /></p>
+<p>If not</p>
+<p><strong>Sudo apt-get install cmake</strong></p>
+<p><img alt="" src="images/121918_2102_SPIfastDisp9.png" /></p>
+<p>Then run again</p>
+<p>cmake -DKEDEI_V63_MPI3501=ON ..</p>
+<p><img alt="" src="images/121918_2102_SPIfastDisp10.png" /></p>
+<p>Errors!</p>
+<p>Missing display speed</p>
+<p>-DSPI_BUS_CLOCK_DIVISOR=6</p>
+<p>So</p>
+<p>cmake -DKEDEI_V63_MPI3501=ON -DSPI_BUS_CLOCK_DIVISOR=6 -DSTATISTICS=0 ..</p>
+<p><img alt="" src="images/121918_2102_SPIfastDisp11.png" /></p>
+<p>|  | Possibly add -DUSE_DMA_TRANSFERS=ON   cmake -DKEDEI_V63_MPI3501=ON -DSPI_BUS_CLOCK_DIVISOR=6 -DSTATISTICS=0 -DUSE_DMA_TRANSFERS=ON ..  Result: no change to white screen  cmake -DKEDEI_V63_MPI3501=ON -DSPI_BUS_CLOCK_DIVISOR=30 .. |
+| Make -j |  |
+| Run it | No dice? |
+| Auto load on statups | sudo /home/pi/fbcp-ili9341/build/fbcp-ili9341 &amp; |
+| Some notes on rc.local <a href="https://www.raspberrypi.org/documentation/linux/usage/rc-local.md">https://www.raspberrypi.org/documentation/linux/usage/rc-local.md</a>  Use &amp; to split  Use full path naems not relative | Edit /etc/rc.local and add |</p>
+<p>sudo nano /etc/rc.local</p>
+<p>sudo /home/pi/fbcp-ili9341/build/fbcp-ili9341 &amp;</p>
+<p>And that should go before the exit 0</p>
+<p>As so</p>
+<p>Edit the hdmi size settings in</p>
+<p>boot/config.txt</p>
+<p>Don’t forget the refresh rate!</p>
+<p>Using</p>
+<p>Sudo nano /boot/config.txt</p>
+<p>Notes on config.txt</p>
+<p>Rpf.io/config</p>
+<p>Notes on custom HDMI_MODE=87<br />
+<a href="https://www.raspberrypi.org/forums/viewtopic.php?f=29&amp;t=24679">https://www.raspberrypi.org/forums/viewtopic.php?f=29&amp;t=24679</a></p>
+<p><img alt="" src="images/121918_2102_SPIfastDisp16.png" /><br />
+hdmi_group=2<br />
+hdmi_mode=87<br />
+hdmi_cvt=480 320 60 1 0 0 0<br />
+hdmi_force_hotplug=1</p>
+<p><img alt="" src="images/121918_2102_SPIfastDisp17.png" /></p>
+<p>Could this be helpful?”What I generally do to debug is connect to the Pi via SSH and run watch -n 0.1 gpio -g readallto observe what the IN/OUT and HIGH/LOW status of each GPIO register is, and cross reference the schematics of the display to see if the reset line is as needed.” – <a href="https://github.com/juj/fbcp-ili9341/issues/3">https://github.com/juj/fbcp-ili9341/issues/3</a>Conclusion”The KeDei v6.3 display with MPI3501 controller takes the crown of being horrible.”</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Can we try the alt git tree? No, not for this one.  Details  <a href="https://stackoverflow.com/questions/7832770/how-to-get-certain-commit-from-github-project/33345534">https://stackoverflow.com/questions/7832770/how-to-get-certain-commit-from-github-project/33345534</a></td>
+<td><a href="https://github.com/juj/fbcp-ili9341/commit/4c9229037e923e8f1b866afbcb79b556bf808c4f">https://github.com/juj/fbcp-ili9341/commit/4c9229037e923e8f1b866afbcb79b556bf808c4f</a></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Command to try other tree.</td>
+<td>Git checkout 4c9229037e923e8f1b866afbcb79b556bf808c4f</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Result:</td>
+<td>Would not compile.</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+  </main>
+  <footer>
+    <p>Copyright Jaren Havell. You wouldn't download a car.</p>
+  </footer>
+</body>
+</html>

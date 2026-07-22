@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Server Room Environmental Monitoring -Light and Temperature — JarenHavell.com</title>
+  <link rel="icon" href="../../../../favicon.ico" type="image/x-icon">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: #fff;
+      color: #222;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    header {
+      background: #28a745;
+      padding: 2.5rem 2rem 2rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+    header h1 { font-size: 2.2rem; font-weight: 800; }
+    header h1 a { color: #fff; text-decoration: none; }
+    nav { display: flex; gap: 1.5rem; }
+    nav a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-size: 0.95rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      padding: 0.25rem 0.75rem;
+      border-radius: 4px;
+    }
+    nav a:hover { background: rgba(255,255,255,0.2); color: #fff; }
+    main {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem;
+    }
+    main h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: 0.25rem; }
+    main h2 { font-size: 1.3rem; font-weight: 700; margin: 1.5rem 0 0.5rem; }
+    main h3 { font-size: 1.1rem; font-weight: 600; margin: 1.25rem 0 0.4rem; }
+    main p { margin-bottom: 1rem; color: #333; }
+    main em { color: #666; }
+    main a { color: #135e96; }
+    main ul, main ol { padding-left: 1.5rem; margin-bottom: 1rem; }
+    main li { margin: 0.25rem 0; }
+    main pre {
+      background: #f4f4f4;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 1rem;
+      overflow-x: auto;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+    }
+    main code {
+      background: #f4f4f4;
+      padding: 0.15em 0.35em;
+      border-radius: 3px;
+      font-size: 0.9em;
+    }
+    main pre code { background: none; padding: 0; }
+    main img { max-width: 100%; height: auto; margin: 1rem 0; border-radius: 4px; }
+    main blockquote {
+      border-left: 4px solid #ddd;
+      padding-left: 1rem;
+      color: #555;
+      margin-bottom: 1rem;
+    }
+    footer {
+      border-top: 1px solid #ddd;
+      padding: 1.25rem 2rem;
+      font-size: 0.85rem;
+      color: #666;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1><a href="../../../../index2.html">JarenHavell.com</a></h1>
+    <nav>
+      <a href="../../../../index2.html">Blog</a>
+      <a href="../../../../about.md">About Me</a>
+    </nav>
+  </header>
+  <main>
+<h1>Server Room Environmental Monitoring -Light and Temperature</h1>
+<p><em>April 27, 2011</em></p>
+<p>Server Room Environmental Monitoring -Light and Temperature</p>
+<p><strong>April 27, 2011 by Jaren</strong></p>
+<p><strong>Update: Featured on Hackaday!</strong></p>
+<p>Did I leave the light on in the server room again? Kind of like “did I leave the oven on” question… it’s going to bug me all night!</p>
+<p>At least I am well on my way to answering that, and several other questions I might be wondering.</p>
+<p>My goal with this project is to set up a remote monitoring device I can place in my server room that will display basic information such as temperature, ambient light values, decibels, current draw, etc.</p>
+<p>Right now I have a 16×2 character (parallel)LCD from JKdevices. Its compatible with the Hitachi HD44780, so it works great with the Arduino LiquidCrystal library.</p>
+<p>I have it connected in 4bit mode.</p>
+<p><a href="https://web.archive.org/web/20161009171243/http:/www.jarenhavell.com/wp-content/uploads/2011/04/C360_2011-04-26-22-05-44.jpg"><img alt="" src="images/011818_0139_ServerRoomE1.jpg" /></a></p>
+<p><strong><em>Arduino with potentiometer, temperature and light sensors</em></strong></p>
+<p>I have the Arduino reading the 3 sensors and storing them to variables. The light and potentiometer values are stored to an integer, and the temperature is stored in a float. Those variables are then “printed” to the LCD screen, every 500 milliseconds.</p>
+<p>Here is the temperature sensor<br />
+<a href="https://web.archive.org/web/20161009171243/http:/www.jarenhavell.com/wp-content/uploads/2011/04/C360_2011-04-26-21-15-10.jpg"><img alt="" src="images/011818_0139_ServerRoomE2.jpg" /></a></p>
+<p><strong><em>Modern Devices I2C Temp Sensor</em></strong></p>
+<p>The sensor is based around TI’s TMP421. I purchased this board from Liquidware. The breakout board is manufactured by Modern Devices.  It’s accurate to within +/- 1 degree Celsius, or for us Americans, +/- 1.8 degrees Fahrenheit. It’s based off the I2C protocol, and includes a library to  make things (somewhat) easier to use.</p>
+<p>The light sensor is manufactured by Vishay, The TEMT6000 [datasheet] from Sparkfun Electronics .</p>
+<p>Right now I have no idea what units it is reading, just that the value changes proportionally to the amount of light.</p>
+<p>The final item on the display is updating the value from a potentiometer. Not much use for that unless I need a position sensor for something that rotates or opens.</p>
+<p>I’m ordering a few more sensors – more to come as parts come in!</p>
+<p>—————-</p>
+<p>LCD Pinout</p>
+<p>Blue Backlit LCD</p>
+<p>Standard HD44780 Interface</p>
+<p>Runs on 5 volts</p>
+<p>16×2 Character Display</p>
+<p>4 Mounting Holes</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Pin</td>
+<td>Symbol</td>
+<td>description</td>
+</tr>
+<tr>
+<td>1</td>
+<td>GND</td>
+<td>Ground</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Vcc</td>
+<td>Vcc (+5V) also powers backlight</td>
+</tr>
+<tr>
+<td>3</td>
+<td>V0</td>
+<td>Contrast adjustment</td>
+</tr>
+<tr>
+<td>4</td>
+<td>RS</td>
+<td>Register select: low = instruction, high = data</td>
+</tr>
+<tr>
+<td>5</td>
+<td>R/W</td>
+<td>low = write, high = read</td>
+</tr>
+<tr>
+<td>6</td>
+<td>E</td>
+<td>Enable (active high)</td>
+</tr>
+<tr>
+<td>7</td>
+<td>DB0</td>
+<td>Data-bus bit 0 (not used in 4-bit mode)</td>
+</tr>
+<tr>
+<td>8</td>
+<td>DB1</td>
+<td>Data-bus bit 1 (not used in 4-bit mode)</td>
+</tr>
+<tr>
+<td>9</td>
+<td>DB2</td>
+<td>Data-bus bit 2 (not used in 4-bit mode)</td>
+</tr>
+<tr>
+<td>10</td>
+<td>DB3</td>
+<td>Data-bus bit 3 (not used in 4-bit mode)</td>
+</tr>
+<tr>
+<td>11</td>
+<td>DB4</td>
+<td>Data-bus bit 4</td>
+</tr>
+<tr>
+<td>12</td>
+<td>DB5</td>
+<td>Data-bus bit 5</td>
+</tr>
+<tr>
+<td>13</td>
+<td>DB6</td>
+<td>Data-bus bit 6</td>
+</tr>
+<tr>
+<td>14</td>
+<td>DB7</td>
+<td>Data-bus bit 7</td>
+</tr>
+<tr>
+<td>15</td>
+<td>LED+</td>
+<td>Positive backlight supply (if used)</td>
+</tr>
+<tr>
+<td>16</td>
+<td>LED-</td>
+<td>Negative backlight supply (if used)</td>
+</tr>
+</tbody>
+</table>
+<p>————–</p>
+<p>Update 5/13/2011</p>
+<p>PIR sensor and Audio level sensor have arrived, along with ethernet shield. Trying to get something solid together over the weekend, before next week’s Maker Faire in SF.</p>
+<p>————-</p>
+<p>Update 6/14/2011</p>
+<p>Received new parts – sparkfun i2C  backpack for LCD.</p>
+<p>Ran into a snag with my Arduino duemilanove -I think I blew up burned out the FTDI chip! Not to worry, I hooked up the Xbee for easy “wireless” programming! Got the backpack soldered to the LCD and got it displaying temperatures. Biggest issue was finding the right code to talk to an i2c display, then pushing over the temperature data. The temperature from the sensor is stored as a Float. Floats will not transfer over the serLCD from Sparkfun, so I needed to change it to an integer first. Who knew?</p>
+<p><a href="https://web.archive.org/web/20161009171243/http:/www.jarenhavell.com/wp-content/uploads/2011/04/i2cdisplayxbee.jpg"><img alt="" src="images/011818_0139_ServerRoomE3.jpg" /></a></p>
+<p>Part 2</p>
+  </main>
+  <footer>
+    <p>Copyright Jaren Havell. You wouldn't download a car.</p>
+  </footer>
+</body>
+</html>

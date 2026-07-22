@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Installing Retropi and Pi Hole, using a Linux computer — JarenHavell.com</title>
+  <link rel="icon" href="../../../../favicon.ico" type="image/x-icon">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: #fff;
+      color: #222;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    header {
+      background: #28a745;
+      padding: 2.5rem 2rem 2rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+    header h1 { font-size: 2.2rem; font-weight: 800; }
+    header h1 a { color: #fff; text-decoration: none; }
+    nav { display: flex; gap: 1.5rem; }
+    nav a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-size: 0.95rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      padding: 0.25rem 0.75rem;
+      border-radius: 4px;
+    }
+    nav a:hover { background: rgba(255,255,255,0.2); color: #fff; }
+    main {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem;
+    }
+    main h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: 0.25rem; }
+    main h2 { font-size: 1.3rem; font-weight: 700; margin: 1.5rem 0 0.5rem; }
+    main h3 { font-size: 1.1rem; font-weight: 600; margin: 1.25rem 0 0.4rem; }
+    main p { margin-bottom: 1rem; color: #333; }
+    main em { color: #666; }
+    main a { color: #135e96; }
+    main ul, main ol { padding-left: 1.5rem; margin-bottom: 1rem; }
+    main li { margin: 0.25rem 0; }
+    main pre {
+      background: #f4f4f4;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 1rem;
+      overflow-x: auto;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+    }
+    main code {
+      background: #f4f4f4;
+      padding: 0.15em 0.35em;
+      border-radius: 3px;
+      font-size: 0.9em;
+    }
+    main pre code { background: none; padding: 0; }
+    main img { max-width: 100%; height: auto; margin: 1rem 0; border-radius: 4px; }
+    main blockquote {
+      border-left: 4px solid #ddd;
+      padding-left: 1rem;
+      color: #555;
+      margin-bottom: 1rem;
+    }
+    footer {
+      border-top: 1px solid #ddd;
+      padding: 1.25rem 2rem;
+      font-size: 0.85rem;
+      color: #666;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1><a href="../../../../index2.html">JarenHavell.com</a></h1>
+    <nav>
+      <a href="../../../../index2.html">Blog</a>
+      <a href="../../../../about.md">About Me</a>
+    </nav>
+  </header>
+  <main>
+<h1>Installing Retropi and Pi Hole, using a Linux computer</h1>
+<p><em>December 29, 2019</em></p>
+<p>In this video, I explain how to get a raspberry pie 3 to pull double dute as an entertainment device as well as some added utility by having is run both retropie for gaming and pihole for advertisement filtering. Oh -and we are doing this all from a linux (Debian 10 ) basedclr</p>
+<p>computer.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Things you need</td>
+<td>- Raspberry Pi, version 2b or 3b recommended - Sd card, recommended 8G or larger, Class 10 or faster. - Cords and connectors to connect to power, audio, video and network - USB keyboard. Mouse optional. - USB Game controller (snes, n64 or similar) - Method of plugging microSD card into a computer (SD card adapter or similar)</td>
+</tr>
+<tr>
+<td>Things you need to know</td>
+<td>99% of “Roms” obtained online are straight up illegal copies of Nintendos intellectual property. Do not download roms. Read more <a href="https://arstechnica.com/gaming/2018/08/can-a-digital-lending-library-solve-classic-gamings-piracy-problem/">about that here</a></td>
+</tr>
+<tr>
+<td>Things to download</td>
+<td>Retro Pi  <a href="https://retropie.org.uk/download/">https://retropie.org.uk/download/#Pre-made_images_for_the_Raspberry_Pi</a></td>
+</tr>
+<tr>
+<td>Process</td>
+<td>1. Extract the retropi.img.tar.gz file. You can’t flash a tar.gz file! 2. Flash new RetroPi.img image to SD card using DD 3. Boot up raspberry pi. If all goes well, you will be greeted with the rainbow, then the installer. 4. Complete installation by setting up a game controller. I used <a href="https://www.youtube.com/watch?v=pl4meht_86w">this video tutorial</a> from <a href="https://www.youtube.com/channel/UC7-BWdwziR8LozMCBD1Ei7w">Linux4UnMe</a> for an N64 controller and it had some great hints 5. Enable SSH (under Raspiconfig, Interface Options, SSH) 6. Using an SFTP file transfer program, copy over some legitimate, open source games 7. Find IP Address and connect via SSH 8. Run the pi hole curl / script 9. change your DNS settings on your pc or router and test it out! 10. play video games</td>
+</tr>
+<tr>
+<td>Setup N64 Game controller hints</td>
+<td><a href="https://www.youtube.com/watch?v=pl4meht_86w">https://www.youtube.com/watch?v=pl4meht_86w</a></td>
+</tr>
+</tbody>
+</table>
+<p><img alt="" src="images/123019_0211_InstallingR1.png" /><br />
+|  |  |
+|  |  |
+|  |  |
+| Commands for later | lsblk |</p>
+<p>dd</p>
+<p><a href="http://jarenhavell.com/2018/05/04/dd-writing-an-img-or-iso-to-a-disk/">how to use DD</a> and LSBLK</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Install FileZilla</td>
+<td>Sudo apt-get install filezilla</td>
+</tr>
+</tbody>
+</table>
+<p>or find in the app store
+|  |  |
+| --- | --- |
+| Upload roms to raspberry pi | connect using IP address  User: Pi  Pass: raspberry  port: 22 |</p>
+<p>Path:</p>
+<p>/home/pi/RetroPie/roms/</p>
+<p>you may need to restart retropi to see that directory.
+|  |  |
+| --- | --- |
+| SSH into Pi | Ssh pi@192.168.1.51 |
+| Install PiHole | You can <a href="https://docs.pi-hole.net/main/basic-install/">read about more ways</a> to install pihole, but it is literally as simple as running this: |</p>
+<p>curl -sSL <a href="https://install.pi-hole.net">https://install.pi-hole.net</a> | bash</p>
+<p>| PieHole add on | Add on for <a href="https://www.reddit.com/r/pihole/comments/8zrj3y/pihole_addon_for_firefox/">Firefox</a> and <a href="https://www.reddit.com/r/pihole/comments/9183ix/pihole_extension_for_chrome/">Chrome</a> to easily disable pihole for a few minutes.  <a href="https://github.com/Spencer-Yoder/Remote-Switch-for-Pi-Hole-Chrome">https://github.com/Spencer-Yoder/Remote-Switch-for-Pi-Hole-Chrome</a> |
+|  |  |
+|  |  |
+|  |  |</p>
+<p>Parking Lot Ideas</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>Further Reading / Research:  Homebrew Games on Nintendo 64?</em></td>
+<td>Writing Your own N64 games?</td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://www.neoflash.com/forum/index.php?topic=7444.0">https://www.neoflash.com/forum/index.php?topic=7444.0</a></p>
+<p>And more details<br />
+h<a href="https://n64squid.com/homebrew/">https://n64squid.com/homebrew/</a>
+| <em>Ever deeper down the nintendo pie-hole: A Rom Patch for nintendo games? Mods Hacks?</em> | If you own a legal game (like, a physical cartridge) and a game genie cartridge (more hardware) , you can play with some fun IPS patches like this <a href="http://n64vault.com/ge-for-fun:cybertruck">CYBERTRUCK patch</a> for Golden Eye 007. (<a href="https://www.youtube.com/watch?v=wQ3tnsMlkBI">video</a>) |
+| <em>Legal Roms</em> | NES |</p>
+<p><a href="http://www.romhacking.net/homebrew/">Open source Original SNES/NES games at RomHacking</a></p>
+<p>Or at <a href="http://www.nesworld.com/article.php?system=nes&amp;data=neshomebrew">NESWORLD</a></p>
+<p>Try out <a href="http://www.romhacking.net/homebrew/65/">2048</a> or <a href="http://www.romhacking.net/homebrew/104/">BlockDude</a>(Ti-83 port) or BladeBuster</p>
+<p>SNES</p>
+<p>Try out <a href="http://www.romhacking.net/homebrew/89/">ChristmasCraze</a> or <a href="http://www.nesworld.com/article.php?system=nes&amp;data=neshomebrew">BladeBuster</a></p>
+<p>N64<br />
+<a href="https://n64squid.com/homebrew/">Open Source Original n64 games at n64Squid</a></p>
+<p>Try out <a href="https://n64squid.com/pyoro-64/">Pyoro 64</a> or <a href="https://n64squid.com/dexanoid/">Dexanoid</a></p>
+  </main>
+  <footer>
+    <p>Copyright Jaren Havell. You wouldn't download a car.</p>
+  </footer>
+</body>
+</html>

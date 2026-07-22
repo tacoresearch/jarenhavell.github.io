@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Remote assistance msra.exe — JarenHavell.com</title>
+  <link rel="icon" href="../../../../favicon.ico" type="image/x-icon">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: #fff;
+      color: #222;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    header {
+      background: #28a745;
+      padding: 2.5rem 2rem 2rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+    header h1 { font-size: 2.2rem; font-weight: 800; }
+    header h1 a { color: #fff; text-decoration: none; }
+    nav { display: flex; gap: 1.5rem; }
+    nav a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-size: 0.95rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      padding: 0.25rem 0.75rem;
+      border-radius: 4px;
+    }
+    nav a:hover { background: rgba(255,255,255,0.2); color: #fff; }
+    main {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem;
+    }
+    main h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: 0.25rem; }
+    main h2 { font-size: 1.3rem; font-weight: 700; margin: 1.5rem 0 0.5rem; }
+    main h3 { font-size: 1.1rem; font-weight: 600; margin: 1.25rem 0 0.4rem; }
+    main p { margin-bottom: 1rem; color: #333; }
+    main em { color: #666; }
+    main a { color: #135e96; }
+    main ul, main ol { padding-left: 1.5rem; margin-bottom: 1rem; }
+    main li { margin: 0.25rem 0; }
+    main pre {
+      background: #f4f4f4;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 1rem;
+      overflow-x: auto;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+    }
+    main code {
+      background: #f4f4f4;
+      padding: 0.15em 0.35em;
+      border-radius: 3px;
+      font-size: 0.9em;
+    }
+    main pre code { background: none; padding: 0; }
+    main img { max-width: 100%; height: auto; margin: 1rem 0; border-radius: 4px; }
+    main blockquote {
+      border-left: 4px solid #ddd;
+      padding-left: 1rem;
+      color: #555;
+      margin-bottom: 1rem;
+    }
+    footer {
+      border-top: 1px solid #ddd;
+      padding: 1.25rem 2rem;
+      font-size: 0.85rem;
+      color: #666;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1><a href="../../../../index2.html">JarenHavell.com</a></h1>
+    <nav>
+      <a href="../../../../index2.html">Blog</a>
+      <a href="../../../../about.md">About Me</a>
+    </nav>
+  </header>
+  <main>
+<h1>Remote assistance msra.exe</h1>
+<p><em>April 26, 2016</em></p>
+<p>This post was republished to JarenHavell.com at 11:43:10 AM 4/5/2016</p>
+<p><strong>One lazy trick the IT guy uses to fix your computer</strong></p>
+<p>Catchy internet marketing titles aside, this article shows you how to use msra.exe to remotely connect to computers that you control.</p>
+<p>Tired of walking through the snow and rain to help with simple helpdesk requests?</p>
+<p>Behold the power of Remote Assistance, built right into windows! This feature can be implemented for your environment, assuming that you are using Active Directory and Group Policy with your windows 7/8 environment. This allows you (or your minions) to remotely offer assistance to a user, initiating an “unsolicited” interactive remote desktop connection, with the option for you to request control of their machine. This does not, however, allow you to force remote control of the user’s computer. (There used to be a trick for Windows XP, but it does not work with windows 7/8)</p>
+<p><strong>Step 1</strong> – (for you, the helper)</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Create a shortcut to</td>
+<td>C:\Windows\System32\msra.exe /offerra</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="" src="images/011818_0222_Remoteassis1.jpg" /></p>
+<p><strong>Step 2</strong> – (on your Domain)</p>
+<p>Create a group that will be allowed to initiate connections.</p>
+<p>Example “Offer Remote Assistance Helpers”</p>
+<p>Add users to the group who will have permission to remotely assist others.</p>
+<p><strong>Step 3</strong> – create a new GPO in an OU containing computers, called “Remote Assistance Policy”</p>
+<p>Edit the GPO for Computer Configuration.</p>
+<p><img alt="" src="images/011818_0222_Remoteassis2.jpg" /></p>
+<p><strong>Step 3.1</strong></p>
+<p>Computer Configuration &gt; Policies &gt; Windows Settings &gt; Security Settings &gt; Restricted Groups</p>
+<p>Right click/ Add Group</p>
+<p>Browse for the Active directory group you created above.</p>
+<p><img alt="" src="images/011818_0222_Remoteassis3.jpg" /></p>
+<p><img alt="" src="images/011818_0222_Remoteassis4.jpg" /></p>
+<p><strong>Step 3.2</strong></p>
+<p>Go to Computer Configuration &gt; Administrative Templates &gt; System &gt; Remote Assistance and click Configure <strong>Offer Remote Assistance</strong>.</p>
+<ul>
+<li>
+<p><strong>Enable</strong> the policy</p>
+</li>
+<li>
+<p>Permit remote control of this computer using “<strong>Allow Helpers to remotely control the computer</strong>”</p>
+</li>
+<li>click <strong>Show…</strong> next to Helpers</li>
+<li>Enter the names in <strong>domain\user</strong> or <strong>domain\group</strong> format.</li>
+<li>Enter the group name you created earlier</li>
+</ul>
+<p><img alt="" src="images/011818_0222_Remoteassis5.jpg" /></p>
+<p>Or in 2012 R2</p>
+<p><img alt="" src="images/011818_0222_Remoteassis6.jpg" /></p>
+<p><strong>Step 3.3</strong></p>
+<p>In the same settings folder, enable <strong>Solicited Remote Assistance</strong></p>
+<p>This setting may also be found under</p>
+<p>Computer Configuration &gt; Administrative Templates &gt; System &gt; Remote Assistance and click <strong>Solicited Remote Assistance</strong>.</p>
+<p><img alt="" src="images/011818_0222_Remoteassis7.jpg" /></p>
+<p><img alt="" src="images/011818_0222_Remoteassis8.jpg" /></p>
+<p><strong>Step 3.4</strong></p>
+<p>Go to Computer Configuration &gt;Administrative Templates&gt; Windows Components &gt;Remote Desktop Services&gt;Remote Desktop Session Host&gt;Connections</p>
+<p>Enable “<strong>Allow users to connect remotely using Remote Desktop Service</strong>s”</p>
+<p><img alt="" src="images/011818_0222_Remoteassis9.jpg" /></p>
+<p><strong>Step 4</strong>  Apply this GPO to target computers. This can be done at the root of the domain, or under each OU, depending on desired deployment strategy and security considerations.</p>
+<p><strong>Step 5</strong> – perform a Gpupdate on server and clients and test to see if the settings work.</p>
+<p><strong>Step 6 –</strong>  When a user asks for help, launce the msra from the icon using the shortcut.</p>
+<p>(C:\Windows\System32 msra.exe /offerra)</p>
+<p><strong>Testing</strong>:</p>
+<p>On your PC, launch the new icon</p>
+<p><img alt="" src="images/011818_0222_Remoteassis10.jpg" /></p>
+<p>Enter the <strong>Computer Name</strong> and click next</p>
+<p><img alt="" src="images/011818_0222_Remoteassis11.jpg" /></p>
+<p>The user will be prompted with the following:</p>
+<p><img alt="" src="images/011818_0222_Remoteassis12.jpg" /></p>
+<p>Once the user clicks Yes, you will see the following.</p>
+<p>Notice their desktop image has gone black. This is to preserve network bandwidth for smooth operation. The background will be restored once the support session ends.</p>
+<p><img alt="" src="images/011818_0222_Remoteassis13.jpg" /></p>
+<p>You can select the “Request Control” screen</p>
+<p><img alt="" src="images/011818_0222_Remoteassis14.jpg" /></p>
+<p>Which prompts the user for permission once again.</p>
+<p><img alt="" src="images/011818_0222_Remoteassis15.jpg" /></p>
+<p>(Do not bother with the checkbox for UAC, unless the user you are helping is a local administrator on their PC. If they do not have local admin rights, they will get a popup asking for credentials, and you will get a black screen with an X, causing confusion for both of you.)</p>
+<p>Once you are done, you or the user may close the Windows Remote Assistance box to end the session!</p>
+  </main>
+  <footer>
+    <p>Copyright Jaren Havell. You wouldn't download a car.</p>
+  </footer>
+</body>
+</html>

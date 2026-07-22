@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Light up musical Christmas Card — JarenHavell.com</title>
+  <link rel="icon" href="../../../../favicon.ico" type="image/x-icon">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: #fff;
+      color: #222;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+    header {
+      background: #28a745;
+      padding: 2.5rem 2rem 2rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+    header h1 { font-size: 2.2rem; font-weight: 800; }
+    header h1 a { color: #fff; text-decoration: none; }
+    nav { display: flex; gap: 1.5rem; }
+    nav a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-size: 0.95rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      padding: 0.25rem 0.75rem;
+      border-radius: 4px;
+    }
+    nav a:hover { background: rgba(255,255,255,0.2); color: #fff; }
+    main {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem;
+    }
+    main h1 { font-size: 1.8rem; font-weight: 700; margin-bottom: 0.25rem; }
+    main h2 { font-size: 1.3rem; font-weight: 700; margin: 1.5rem 0 0.5rem; }
+    main h3 { font-size: 1.1rem; font-weight: 600; margin: 1.25rem 0 0.4rem; }
+    main p { margin-bottom: 1rem; color: #333; }
+    main em { color: #666; }
+    main a { color: #135e96; }
+    main ul, main ol { padding-left: 1.5rem; margin-bottom: 1rem; }
+    main li { margin: 0.25rem 0; }
+    main pre {
+      background: #f4f4f4;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 1rem;
+      overflow-x: auto;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+    }
+    main code {
+      background: #f4f4f4;
+      padding: 0.15em 0.35em;
+      border-radius: 3px;
+      font-size: 0.9em;
+    }
+    main pre code { background: none; padding: 0; }
+    main img { max-width: 100%; height: auto; margin: 1rem 0; border-radius: 4px; }
+    main blockquote {
+      border-left: 4px solid #ddd;
+      padding-left: 1rem;
+      color: #555;
+      margin-bottom: 1rem;
+    }
+    footer {
+      border-top: 1px solid #ddd;
+      padding: 1.25rem 2rem;
+      font-size: 0.85rem;
+      color: #666;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1><a href="../../../../index2.html">JarenHavell.com</a></h1>
+    <nav>
+      <a href="../../../../index2.html">Blog</a>
+      <a href="../../../../about.md">About Me</a>
+    </nav>
+  </header>
+  <main>
+<h1>Light up musical Christmas Card</h1>
+<p><em>December 29, 2015</em></p>
+<p>Originally Posted on Tuesday, December 29, 2015</p>
+<p>Three days before Christmas, just as I was falling asleep, I had a vision of a led Christmas tree card.  I imagined it would have a number of charliplexed LED’s blinking in a decorative fashion. I had a few AT Tiny85 microcontrollers on hand from prior projects on hand, and the mice were all asleep, so I decided to give it a go.</p>
+<p>First off came the experimentation with the Charliplex circuit. A quick google search revealed some interesting sample code specifically written for the ’85. Also required is a quick reference of the pinout diagrams for and the 6 pin ISP programming connector and the ISP pins on the ATtiny.</p>
+<p>Parts List:</p>
+<ul>
+<li>Red and Green 5mm LEDs</li>
+<li>ATiny85</li>
+<li>Jumpers</li>
+<li>Breadboard</li>
+<li><a href="https://learn.adafruit.com/usbtinyisp/drivers">USBTinyISP</a> programmer</li>
+<li>Small flat speaker</li>
+</ul>
+<p>Reference Code used:</p>
+<ul>
+<li><a href="http://www.technoblogy.com/show?KVO">Simple Tones for Attiny</a></li>
+<li><a href="http://forum.arduino.cc/index.php?topic=135596.0">Charliplex code for ATtiny85</a></li>
+</ul>
+<p><img alt="" src="images/011718_2354_Lightupmusi1.png" /></p>
+<p><img alt="" src="images/011718_2354_Lightupmusi2.png" /></p>
+<p><img alt="" src="images/011718_2354_Lightupmusi3.png" /></p>
+<p>Once the ISP Pins were plugged into the micro with jumpers, It was time to program the ATTiny.</p>
+<p>Step 1 – Upload Bootloader</p>
+<p>Step 2 – Upload simple “Blink” Program</p>
+<p>Step 3 – use sample Charliplex code with leds</p>
+<p><img alt="" src="images/011718_2354_Lightupmusi4.png" /></p>
+<p>A few quick jumpers on a breadboard yielded some blinkenlights.</p>
+<p><img alt="" src="images/011718_2354_Lightupmusi5.png" /></p>
+<p>First, we try out the sample Charliplex Code</p>
+<p>Video   </p>
+<p>[Video: https://www.youtube.com/watch?v=g_e-rlb_T60]</p>
+<p>Next, we locate some code that can play back simple tones using a single pin of the ATtiny.</p>
+<p>Connecting the speaker is simple</p>
+<p><img alt="" src="images/011718_2354_Lightupmusi6.png" /></p>
+<p>Video: a simple Chromatic scale</p>
+<p>[Video: https://www.youtube.com/watch?v=LuzdY4FY4PM]</p>
+<p>Next was determining what notes sounded like Christmas Time Is Here from Charlie Brown Christmas.</p>
+<p>I played around with a keyboard to find simple tones (not chords) that sound similar to this tune.</p>
+<p>To my untuned, musically challenged ear, the beginning sounds somewhat like A, F , F, D, D.</p>
+<p>To get the timing right, I added a new “note” called Z which results in an inaudible frequency when played, as a delay.</p>
+<p><img alt="" src="images/011718_2354_Lightupmusi7.png" /></p>
+<p>I included note “Z” to add delays between notes.</p>
+<p><img alt="" src="images/011718_2354_Lightupmusi8.png" /></p>
+<p>The final result sounds like this:</p>
+<p>Video: Christmas Time Is Here</p>
+<p>[Video: https://www.youtube.com/watch?v=7KD_jHFhr6M]</p>
+<p>Because code generated using the Arduino IDE’s main loop is single threaded, you can only play music OR flash LEDs using the above code, not both at the same time. Because this was 2 days before Christmas, I simply did not have enough time to figure out how to do it the right way. I opted for the “hacky” solution, simply alternating between led lights and tunes. Alternatively, I did experiment with two chips, one playing the tunes and one flashing the lights, as seen in the following video.</p>
+<p>Video: two AtTiny 85 chips  </p>
+<p>[Video: https://www.youtube.com/watch?v=dfhfa9hy4lk]</p>
+<p>Next, I assembled the basic card structure ( a Christmas Tree with LEDs) and wired up 4 pairs of LEDs, arranged with the reverse polarity of its sibling.</p>
+<p><img alt="" src="images/011718_2354_Lightupmusi9.jpg" /></p>
+<p><img alt="" src="images/011718_2354_Lightupmusi10.jpg" /></p>
+<p>The hookup is roughly as follows for each pair, plus one single LED.</p>
+<p><img alt="" src="images/011718_2354_Lightupmusi11.png" /></p>
+<p>And the messy wiring</p>
+<p><img alt="" src="images/011718_2354_Lightupmusi12.jpg" /></p>
+<p>I added a simple momentary push button switch to connect the 3v lithium cell to power the circuit. I taped a penny behind it for rigidity.</p>
+<p><img alt="" src="images/011718_2354_Lightupmusi13.jpg" /></p>
+<p>Finished product – video</p>
+<p>[Video: https://www.youtube.com/watch?v=4oS14ixePlU]</p>
+<p>Merry Christmas!</p>
+  </main>
+  <footer>
+    <p>Copyright Jaren Havell. You wouldn't download a car.</p>
+  </footer>
+</body>
+</html>
