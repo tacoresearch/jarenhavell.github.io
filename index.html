@@ -1,25 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JarenHavell.com</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <script>
+    /* Apply a saved theme before the page is drawn, so there's no flash.
+       Dark is the default (set on <html> above). Shared with the posts. */
+    try {
+      var saved = localStorage.getItem("jaren-theme");
+      if (saved === "light" || saved === "dark") {
+        document.documentElement.setAttribute("data-theme", saved);
+      }
+    } catch (e) {}
+  </script>
   <style>
+    :root, [data-theme="dark"] {
+      color-scheme: dark;
+      --header-bg: #1a7f37;
+      --bg: #0d1117;
+      --text: #e6edf3;
+      --text-soft: #c9d1d9;
+      --muted: #9198a1;
+      --card: #161b22;
+      --border: #30363d;
+      --divider: #21262d;
+      --link: #79c0ff;
+      --focus: #79c0ff;
+    }
+    [data-theme="light"] {
+      color-scheme: light;
+      --header-bg: #28a745;
+      --bg: #fff;
+      --text: #222;
+      --text-soft: #444;
+      --muted: #666;
+      --card: #f6f8fa;
+      --border: #ddd;
+      --divider: #eee;
+      --link: #135e96;
+      --focus: #0550ae;
+    }
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
     body {
-      background-color: #fff;
-      color: #222;
+      background-color: var(--bg);
+      color: var(--text);
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
       font-size: 16px;
       line-height: 1.6;
     }
     header {
-      background: #28a745;
+      background: var(--header-bg);
       padding: 2.5rem 2rem 2rem;
       text-align: center;
       display: flex;
@@ -60,10 +96,32 @@
       margin: 0 auto;
       padding: 2rem 1.5rem;
     }
+    .topbar {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 1.5rem;
+    }
+    .theme-toggle {
+      font: inherit;
+      font-size: 0.9rem;
+      color: var(--text);
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.3rem 1rem;
+      cursor: pointer;
+    }
+    .theme-toggle:hover {
+      border-color: var(--text);
+    }
+    .theme-toggle:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 2px;
+    }
     article {
       margin-bottom: 2.5rem;
       padding-bottom: 2.5rem;
-      border-bottom: 1px solid #eee;
+      border-bottom: 1px solid var(--divider);
     }
     article:last-child {
       border-bottom: none;
@@ -74,7 +132,7 @@
       margin-bottom: 0.25rem;
     }
     article h2 a {
-      color: #222;
+      color: var(--text);
       text-decoration: none;
     }
     article h2 a:hover {
@@ -82,27 +140,27 @@
     }
     article time {
       font-size: 0.85rem;
-      color: #666;
+      color: var(--muted);
       display: block;
       margin-bottom: 0.6rem;
     }
     article p {
-      color: #444;
+      color: var(--text-soft);
       margin-bottom: 0.75rem;
     }
     article .read-more {
       font-size: 0.9rem;
-      color: #135e96;
+      color: var(--link);
       text-decoration: none;
     }
     article .read-more:hover {
       text-decoration: underline;
     }
     footer {
-      border-top: 1px solid #ddd;
+      border-top: 1px solid var(--border);
       padding: 1.25rem 2rem;
       font-size: 0.85rem;
-      color: #666;
+      color: var(--muted);
       text-align: center;
     }
   </style>
@@ -117,6 +175,17 @@
   </header>
 
   <main>
+    <div class="topbar">
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-pressed="true">Dark mode: on</button>
+    </div>
+
+    <article>
+      <h2><a href="2026/10/25/velofix.html">From the parts pile to Proxmox: reviving a VeloCloud Edge 540</a></h2>
+      <time>October 25, 2026</time>
+      <p>It was a lazy Saturday, and my mind was looking for a distraction. I've had this urge to try out using AI for something, but essentially be its supervisor, not necessarily doing any of the work myself. Delegation is a skill!</p>
+      <a class="read-more" href="2026/10/25/velofix.html">View full article</a>
+    </article>
+
     <article>
       <h2><a href="2025/08/10/expand-raidz-pool-by-adding-a-disk-zfs-expansion-in-proxmox-9/">Expand raidz pool by adding a disk – ZFS expansion in Proxmox 9</a></h2>
       <time>August 10, 2025</time>
@@ -254,5 +323,23 @@
   <footer>
     <p>Copyright Jaren Havell. You wouldn't download a car.</p>
   </footer>
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var button = document.getElementById("theme-toggle");
+      function render() {
+        var dark = root.getAttribute("data-theme") !== "light";
+        button.setAttribute("aria-pressed", dark ? "true" : "false");
+        button.textContent = dark ? "Dark mode: on" : "Dark mode: off";
+      }
+      button.addEventListener("click", function () {
+        var next = root.getAttribute("data-theme") === "light" ? "dark" : "light";
+        root.setAttribute("data-theme", next);
+        try { localStorage.setItem("jaren-theme", next); } catch (e) {}
+        render();
+      });
+      render();
+    })();
+  </script>
 </body>
 </html>

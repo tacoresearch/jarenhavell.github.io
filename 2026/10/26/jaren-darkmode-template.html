@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Post title goes here - JarenHavell.com</title>
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<script>
+  /* Apply a saved theme before the page is drawn, so there's no flash.
+     Dark is the default (set on <html> above). The choice is shared by
+     every post that uses the "jaren-theme" key. */
+  try {
+    var saved = localStorage.getItem("jaren-theme");
+    if (saved === "light" || saved === "dark") {
+      document.documentElement.setAttribute("data-theme", saved);
+    }
+  } catch (e) {}
+</script>
+<style>
+  /* Colours checked against WCAG 2.x AA (4.5:1 for normal text):
+     dark:  #ff8a5c on #0d1117 = 8.15, on #21160f = 7.62
+     light: #b33a00 on #ffffff = 5.96, on #fff4ee = 5.52
+     header: #fff on #1a7f37 = 5.1 (dark); #28a745 matches the rest of the site (light) */
+  :root, [data-theme="dark"] {
+    color-scheme: dark;
+    --header-bg: #1a7f37;
+    --text: #e6edf3;
+    --muted: #9198a1;
+    --bg: #0d1117;
+    --card: #161b22;
+    --border: #30363d;
+    --claw: #ff8a5c;
+    --claw-bg: #21160f;
+    --claw-edge: #ff8a5c;
+    --link: #79c0ff;
+    --focus: #79c0ff;
+  }
+  [data-theme="light"] {
+    color-scheme: light;
+    --header-bg: #28a745;
+    --text: #1f2328;
+    --muted: #59636e;
+    --bg: #ffffff;
+    --card: #f6f8fa;
+    --border: #d1d9e0;
+    --claw: #b33a00;
+    --claw-bg: #fff4ee;
+    --claw-edge: #b33a00;
+    --link: #0550ae;
+    --focus: #0550ae;
+  }
+  .topbar { display: flex; justify-content: flex-end; margin-bottom: 24px; }
+  .theme-toggle {
+    font: inherit;
+    font-size: 0.95rem;
+    color: var(--text);
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 6px 16px;
+    cursor: pointer;
+  }
+  .theme-toggle:hover { border-color: var(--text); }
+  .theme-toggle:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 18px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  main { max-width: 760px; margin: 0 auto; padding: 48px 20px 80px; }
+  h2, h3 { color: var(--claw); }
+  h1 { color: var(--text); font-size: 2.2rem; line-height: 1.2; margin: 0 0 8px; }
+  .byline { color: var(--muted); font-style: italic; font-size: 1.05rem; margin: 0 0 32px; }
+  h2 { font-size: 1.5rem; margin: 48px 0 16px; padding-bottom: 6px; border-bottom: 1px solid var(--border); }
+  h3 { font-size: 1.15rem; margin: 24px 0 8px; }
+  p { margin: 0 0 14px; }
+  a { color: var(--link); }
+
+  /* Each passage is one "speaker", like lines in a play. */
+  .line { margin: 20px 0; }
+  .line p:last-child, .line ul:last-child { margin-bottom: 0; }
+  .who {
+    display: block;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .jaren .who { color: var(--text); }
+  .claw {
+    color: var(--claw);
+    background: var(--claw-bg);
+    border-left: 4px solid var(--claw-edge);
+    border-radius: 6px;
+    padding: 12px 16px;
+  }
+  .claw a { color: var(--claw); text-decoration: underline; }
+  .claw-color { color: var(--claw); }
+  .claw code { color: var(--claw); }
+
+  code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.88em;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1px 6px;
+  }
+  figure { margin: 24px 0; }
+  figure img { width: 100%; height: auto; border-radius: 10px; border: 1px solid var(--border); display: block; }
+  figcaption { color: var(--claw); font-size: 0.92rem; margin-top: 8px; text-align: center; }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0 4px; font-size: 0.95rem; color: var(--claw); }
+  th, td { text-align: left; padding: 7px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  ul { padding-left: 1.3em; margin: 0 0 14px; }
+  li { margin-bottom: 6px; }
+  main footer { margin-top: 56px; color: var(--muted); font-size: 0.9rem; border-top: 1px solid var(--border); padding-top: 16px; }
+
+  /* Site header and footer, same as the rest of JarenHavell.com */
+  .site-header {
+    background: var(--header-bg);
+    padding: 2.5rem 2rem 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  .site-header h1 { font-size: 2.2rem; font-weight: 800; margin: 0; line-height: 1.2; }
+  .site-header h1 a { color: #fff; text-decoration: none; }
+  .site-header nav { display: flex; gap: 1.5rem; }
+  .site-header nav a {
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+  }
+  .site-header nav a:hover { background: rgba(255,255,255,0.2); color: #fff; }
+  .site-footer {
+    border-top: 1px solid var(--border);
+    padding: 1.25rem 2rem;
+    font-size: 0.85rem;
+    color: var(--muted);
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+<header class="site-header">
+  <h1><a href="/">JarenHavell.com</a></h1>
+  <nav>
+    <a href="/">Blog</a>
+    <a href="/about/">About Me</a>
+  </nav>
+</header>
+<main>
+
+<div class="topbar">
+  <button type="button" class="theme-toggle" id="theme-toggle" aria-pressed="true">Dark mode: on</button>
+</div>
+
+<h1>Post title goes here</h1>
+<p class="byline">Month Day, Year</p>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+<figure>
+  <img src="your-photo.jpg" alt="Describe the photo for people who can't see it">
+  <figcaption>Photo caption. Put the image file in the same folder as the post.</figcaption>
+</figure>
+
+<h2>1. A section heading</h2>
+
+<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Try a command like <code>sudo apt-get install lorem</code>.</p>
+
+<h3>A smaller heading</h3>
+
+<ul>
+  <li>Nemo enim ipsam voluptatem quia voluptas sit aspernatur.</li>
+  <li>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</li>
+  <li>Ut enim ad minima veniam, quis nostrum exercitationem.</li>
+</ul>
+
+<table>
+  <tr><th>Part</th><th>What's in there</th></tr>
+  <tr><td>Lorem</td><td>Ipsum dolor sit amet</td></tr>
+  <tr><td>Consectetur</td><td>Adipiscing elit, sed do eiusmod</td></tr>
+</table>
+
+<h2>2. Two voices (optional)</h2>
+
+<p>If a post has a guest writer like Claw, wrap each passage in a "line" block. Delete this section if you don't need it.</p>
+
+<div class="line jaren">
+  <span class="who">Jaren:</span>
+  <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident.</p>
+</div>
+
+<div class="line claw">
+  <span class="who">Claw:</span>
+  <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus.</p>
+</div>
+
+<h2>Wrapping up</h2>
+
+<p>Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus.</p>
+
+<footer>
+  Optional post footer: notes, credits, or "your mileage may vary".
+</footer>
+
+</main>
+<footer class="site-footer">
+  <p>Copyright Jaren Havell. You wouldn't download a car.</p>
+</footer>
+<script>
+  (function () {
+    var root = document.documentElement;
+    var button = document.getElementById("theme-toggle");
+    function render() {
+      var dark = root.getAttribute("data-theme") !== "light";
+      button.setAttribute("aria-pressed", dark ? "true" : "false");
+      button.textContent = dark ? "Dark mode: on" : "Dark mode: off";
+    }
+    button.addEventListener("click", function () {
+      var next = root.getAttribute("data-theme") === "light" ? "dark" : "light";
+      root.setAttribute("data-theme", next);
+      try { localStorage.setItem("jaren-theme", next); } catch (e) {}
+      render();
+    });
+    render();
+  })();
+</script>
+</body>
+</html>

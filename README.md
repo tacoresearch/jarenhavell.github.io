@@ -4,6 +4,10 @@ Local Markdown archive of jarenhavell.com, organized by year.
 
 See also: [About](about.md)
 
+## 2026
+
+- [From the parts pile to Proxmox: reviving a VeloCloud Edge 540](2026/velofix/README.md), October 25, 2026
+
 ## 2025
 
 - [Expand raidz pool by adding a disk – ZFS expansion in Proxmox 9](2025/expand-raidz-pool-by-adding-a-disk-zfs-expansion-in-proxmox-9/README.md) — August 10, 2025  
