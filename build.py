@@ -129,10 +129,10 @@ PAGE_TEMPLATE = """\
 </head>
 <body>
   <header>
-    <h1><a href="{root_rel}index2.html">JarenHavell.com</a></h1>
+    <h1><a href="/">JarenHavell.com</a></h1>
     <nav>
-      <a href="{root_rel}index2.html">Blog</a>
-      <a href="{root_rel}about.md">About Me</a>
+      <a href="/">Blog</a>
+      <a href="/about/">About Me</a>
     </nav>
   </header>
   <main>
