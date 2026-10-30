@@ -206,4 +206,7 @@ I love cats!
 > - [velocloud-520-debian](https://github.com/lori28167/velocloud-520-debian): Debian 13 on the Edge 520, including the patched network driver we built on.
 > - [velo540openwrt](https://github.com/gallops-gannets/velo540openwrt): OpenWrt on the Edge 520/540, where we found the board's I2C pins, the fan chip details and the USB reset trick.
 
+**Jaren:**
+Github: https://github.com/tacoresearch/velofix/
+
 *Tested on one Edge 540 (board revision 2.8). Your mileage may vary, so back up your box before you start.*
